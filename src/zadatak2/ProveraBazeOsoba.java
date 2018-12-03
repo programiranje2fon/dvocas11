@@ -2,7 +2,7 @@ package zadatak2;
 
 import java.io.IOException;
 
-public class ProveraBazaOsoba {
+public class ProveraBazeOsoba {
 
 	public static void main(String[] args) {
 		BazaOsoba baza = new BazaOsoba();
