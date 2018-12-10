@@ -77,6 +77,24 @@ public class BazaOsobaTest {
 		boolean areEqual = osobe.get(0).equals(o1) && osobe.get(1).equals(o2);
 		assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);		
 	}
+	
+	@Test
+	public void metoda_pronadjiOsobe() {
+		Osoba o1 = new Osoba("Pera", "Peric");
+		Osoba o2 = new Osoba("Mara", "Maric");
+		Osoba o3 = new Osoba("Dragan", "Djuric");
+		Osoba o4 = new Osoba("Bojan", "Tomic");
+		baza.dodajOsobu(o1);
+		baza.dodajOsobu(o2);
+		baza.dodajOsobu(o3);
+		baza.dodajOsobu(o4);
+		
+		List<Osoba> osobe = baza.pronadjiOsobe("Pera", "Tomic");
+		
+		boolean areEqual = osobe.get(0).equals(o1) && osobe.get(1).equals(o4) && osobe.size() == 2;
+		assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);		
+	}	
+	
 
 	
 	private List<Osoba> ucitajOsobeIzFajla(String imeFajla) throws IOException {

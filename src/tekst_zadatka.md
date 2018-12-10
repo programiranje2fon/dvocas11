@@ -44,3 +44,14 @@ Ukoliko dodje do greške prilikom učitavanja baciti odgovarajući izuzetak iz m
 5. Javnu metodu **vratiOsobe** koja vraća listu osoba koje se trenutno nalaze u bazi.
 
 Napraviti javnu klasu **ProveraBazeOsoba** u paketu **zadatak2** koja proverava rad klase **BazaOsoba** i to dodavanje nekoliko osoba u bazu, čuvanje u fajl i čitanje iz fajla. 
+
+
+##Zadatak 3
+*(studenti rade sami)*
+
+Postojećoj klasi **BazaOsoba** dodati:
+
+1. Metodu **pronadjiOsobe** koja kao ulazne parametre prima dva stringa **ime** i **prezime**, a kao rezultat vraća listu osoba
+koje imaju zadato ime ili zadato prezime.  
+
+Proveriti rad metode **pronadjiOsobe** pozivom iz klase **ProveraBazeOsoba**.

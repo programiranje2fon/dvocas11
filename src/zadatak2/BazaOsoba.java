@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BazaOsoba {
@@ -51,5 +52,13 @@ public class BazaOsoba {
 		return osobe;
 	}
 	
+	public List<Osoba> pronadjiOsobe(String ime, String prezime) {
+		List<Osoba> rezultati = new LinkedList<Osoba>();
+		for(Osoba osoba : osobe) {
+			if (osoba.getIme().equals(ime) || osoba.getPrezime().equals(prezime))
+				rezultati.add(osoba);
+		}
+		return rezultati;
+	}
 	
 }
