@@ -1,6 +1,7 @@
 package zadatak2;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ProveraBazeOsoba {
 
@@ -10,6 +11,7 @@ public class ProveraBazeOsoba {
 		baza.dodajOsobu(new Osoba("Pera", "Peric"));
 		baza.dodajOsobu(new Osoba("Sara", "Saric"));
 		baza.dodajOsobu(new Osoba("Laza", "Lazic"));
+		baza.dodajOsobu(new Osoba("Milan", "Tosic"));
 		
 		try {
 			baza.sacuvaUFajl("baza.out");
@@ -23,6 +25,9 @@ public class ProveraBazeOsoba {
 		} catch (IOException e) {
 			System.out.println("Greska prilikom ucitavanja sadrzaja baze iz fajla!");
 		}
+		
+		List<Osoba> rezultati = baza.pronadjiOsobe("Pera", "Tosic");
+		System.out.println(rezultati);
 		
 	}
 	
