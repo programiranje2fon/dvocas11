@@ -26,8 +26,7 @@ public class ProveraBazeOsoba {
 			System.out.println("Greska prilikom ucitavanja sadrzaja baze iz fajla!");
 		}
 		
-		List<Osoba> rezultati = baza.pronadjiOsobe("Pera", "Tosic");
-		System.out.println(rezultati);
+		baza.pronadjiOsobe("Pera", "Tosic");
 		
 	}
 	

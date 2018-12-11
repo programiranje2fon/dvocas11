@@ -2,8 +2,6 @@ package zadatak1;
 
 import java.io.*;
 
-
-
 public class TekstualniFajlovi {
 	
 	public static String ucitajIVratiTekst(String imeFajla) throws IOException {

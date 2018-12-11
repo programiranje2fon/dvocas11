@@ -1,2 +1,0 @@
-Ovo je neki tekst koji se nalazi u fajlu.
-Ovaj tekst treba ucitati i ispisati na ekranu.

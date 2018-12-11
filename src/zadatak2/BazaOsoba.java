@@ -52,13 +52,17 @@ public class BazaOsoba {
 		return osobe;
 	}
 	
-	public List<Osoba> pronadjiOsobe(String ime, String prezime) {
-		List<Osoba> rezultati = new LinkedList<Osoba>();
-		for(Osoba osoba : osobe) {
-			if (osoba.getIme().equals(ime) || osoba.getPrezime().equals(prezime))
-				rezultati.add(osoba);
-		}
-		return rezultati;
+	public void pronadjiOsobe(String ime, String prezime) {
+		try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("pretraga.ser"))) {
+			for(Osoba osoba : osobe) {
+				if (osoba.getIme().equals(ime) || osoba.getPrezime().equals(prezime))
+					out.writeObject(osoba);
+			}
+			out.flush();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
+
 	}
 	
 }

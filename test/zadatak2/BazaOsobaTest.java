@@ -56,6 +56,9 @@ public class BazaOsobaTest {
 	public void metoda_ucitajIzFajla() {
 		Osoba o1 = new Osoba("Pera", "Peric");
 		Osoba o2 = new Osoba("Mara", "Maric");		
+		baza.dodajOsobu(o1);
+		baza.dodajOsobu(o2);
+		
 		try {
 			List<Osoba> ucitaneOsobe =  baza.ucitajIzFajla("testFajl.out");
 			boolean areEqual = ucitaneOsobe.get(0).equals(o1) && ucitaneOsobe.get(1).equals(o2);
@@ -89,13 +92,20 @@ public class BazaOsobaTest {
 		baza.dodajOsobu(o3);
 		baza.dodajOsobu(o4);
 		
-		List<Osoba> osobe = baza.pronadjiOsobe("Pera", "Tomic");
+		baza.pronadjiOsobe("Pera", "Tomic");
 		
-		boolean areEqual = osobe.get(0).equals(o1) && osobe.get(1).equals(o4) && osobe.size() == 2;
-		assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);		
+		BazaOsoba baza2 = new BazaOsoba();
+		try {
+			baza2.ucitajIzFajla("pretraga.ser");
+			List<Osoba> osobe2 =  baza2.vratiOsobe();
+			
+			boolean areEqual = osobe2.get(0).equals(o1) && osobe2.get(1).equals(o4) && osobe2.size() == 2;
+			assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);				
+		} catch (IOException e) {
+			fail("Greska prilikom ucitavanja osoba u fajl!");
+		}	
 	}	
 	
-
 	
 	private List<Osoba> ucitajOsobeIzFajla(String imeFajla) throws IOException {
 		List<Osoba> osobe = new ArrayList<>();

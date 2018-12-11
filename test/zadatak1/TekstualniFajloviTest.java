@@ -3,7 +3,11 @@ package zadatak1;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,9 +26,13 @@ public class TekstualniFajloviTest {
 	@Test
 	public void metoda_ucitajIVratiTekst() {
 		try {
+			TekstualniFajlovi.upisiTekst("tekst.txt");
 			String ucitaniTekst = TekstualniFajlovi.ucitajIVratiTekst("tekst.txt");
-			String ocekivaniTekst = "Ovo je neki tekst koji se nalazi u fajlu. Ovaj tekst treba ucitati i ispisati na ekranu. ";
-			assertEquals("Nije ucitan ocekivani tekst", ocekivaniTekst, ucitaniTekst);
+			String ocekivaniTekst = "Danas je lep dan. Mozda ce temperatura biti iznad nule. ";
+			assertEquals("Nije upisan ocekivani tekst", ocekivaniTekst, ucitaniTekst);		
+			File fajl = new File("tekst.txt");
+			fajl.delete();			
+			
 		} catch (IOException e) {
 			fail("Greska prilikom ucitavanja teksta iz fajla tekst.txt proverite da li postoji fajl i da li ste prosledili dobro ime fajla metodi");
 		}		
@@ -41,5 +49,6 @@ public class TekstualniFajloviTest {
 			fail("Greska prilikom upisivanja teksta iz fajla tekst2.txt proverite da li postoji fajl i da li ste prosledili dobro ime fajla metodi");
 		}
 	}
+	
 
-}
+}	
