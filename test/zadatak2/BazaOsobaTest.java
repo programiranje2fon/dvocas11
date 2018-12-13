@@ -3,6 +3,7 @@ package zadatak2;
 import static org.junit.Assert.*;
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -49,7 +50,11 @@ public class BazaOsobaTest {
 			assertTrue("Osobe nisu dobro sacuvane", areEqual);
 		} catch (IOException e) {
 			fail("Greska prilikom cuvanja u fajl!");
-		}		
+		}	finally {
+			File fajl = new File("testFajl.out");
+			fajl.delete();
+		}
+			
 	}
 
 	@Test
@@ -59,13 +64,18 @@ public class BazaOsobaTest {
 		baza.dodajOsobu(o1);
 		baza.dodajOsobu(o2);
 		
-		try {
+		try {			
+			baza.sacuvaUFajl("testFajl.out");
 			List<Osoba> ucitaneOsobe =  baza.ucitajIzFajla("testFajl.out");
 			boolean areEqual = ucitaneOsobe.get(0).equals(o1) && ucitaneOsobe.get(1).equals(o2);
 			assertTrue("Osobe nisu dobro ucitane", areEqual);
 		} catch (IOException e) {
 			fail("Greska prilikom citanja iz fajla!");
+		} finally {
+			File fajl = new File("testFajl.out");
+			fajl.delete();
 		}
+		
 	}
 
 	@Test
