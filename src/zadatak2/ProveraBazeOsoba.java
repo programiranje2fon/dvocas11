@@ -14,7 +14,7 @@ public class ProveraBazeOsoba {
 		baza.dodajOsobu(new Osoba("Milan", "Tosic"));
 		
 		try {
-			baza.sacuvaUFajl("baza.out");
+			baza.sacuvajUFajl("baza.out");
 		} catch (IOException e) {
 			System.out.println("Greska prilikom cuvanja sadrzaja baze u fajl!");
 		}

@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class BazaOsoba {
@@ -17,7 +16,7 @@ public class BazaOsoba {
 		osobe.add(osoba);
 	}
 	
-	public void sacuvaUFajl(String imeFajla) throws IOException {
+	public void sacuvajUFajl(String imeFajla) throws IOException {
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(imeFajla));
 
 		for(Osoba osoba : osobe) {

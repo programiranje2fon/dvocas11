@@ -1,8 +1,10 @@
 package zadatak2;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -36,19 +38,25 @@ public class BazaOsobaTest {
 	}
 
 	@Test
-	public void metoda_sacuvaUFajl() {
+	public void metoda_sacuvajUFajl() {
 		Osoba o1 = new Osoba("Pera", "Peric");
 		Osoba o2 = new Osoba("Mara", "Maric");
 		baza.dodajOsobu(o1);
 		baza.dodajOsobu(o2);
 		
 		try {
-			baza.sacuvaUFajl("testFajl.out");
-			List<Osoba> ucitaneOsobe = ucitajOsobeIzFajla("testFajl.out");			
-			boolean areEqual = ucitaneOsobe.get(0).equals(o1) && ucitaneOsobe.get(1).equals(o2); 			
-			assertTrue("Osobe nisu dobro sacuvane", areEqual);
-		} catch (IOException e) {
+			String imeFajla = "testFajl.out";
+			baza.sacuvajUFajl(imeFajla);
+
+			List<Osoba> ucitaneOsobe = ucitajOsobeIzFajla(imeFajla);			
+			
+			assertTrue("Ako se dodaju dve osobe, prva osoba nije sacuvana u fajlu.", ucitaneOsobe.get(0).equals(o1));
+			assertTrue("Ako se dodaju dve osobe, druga osoba nije sacuvana u fajlu.", ucitaneOsobe.get(1).equals(o2));
+		} catch (Exception e) {
 			fail("Greska prilikom cuvanja u fajl!");
+		}	finally {
+			File fajl = new File("testFajl.out");
+			fajl.delete();
 		}		
 	}
 
@@ -58,13 +66,18 @@ public class BazaOsobaTest {
 		Osoba o2 = new Osoba("Mara", "Maric");		
 		baza.dodajOsobu(o1);
 		baza.dodajOsobu(o2);
-		
 		try {
-			List<Osoba> ucitaneOsobe =  baza.ucitajIzFajla("testFajl.out");
-			boolean areEqual = ucitaneOsobe.get(0).equals(o1) && ucitaneOsobe.get(1).equals(o2);
-			assertTrue("Osobe nisu dobro ucitane", areEqual);
-		} catch (IOException e) {
+			String imeFajla = "testFajl.out";
+			baza.sacuvajUFajl(imeFajla);
+			
+			List<Osoba> ucitaneOsobe =  baza.ucitajIzFajla(imeFajla);
+			assertTrue("Iz fajla u kojem se nalaze dve osobe, prva osoba nije dobro ucitane", ucitaneOsobe.get(0).equals(o1));
+			assertTrue("Iz fajla u kojem se nalaze dve osobe, prva osoba nije dobro ucitane", ucitaneOsobe.get(0).equals(o1));
+		} catch (Exception e) {
 			fail("Greska prilikom citanja iz fajla!");
+		} finally {
+			File fajl = new File("testFajl.out");
+			fajl.delete();
 		}
 	}
 
@@ -78,7 +91,7 @@ public class BazaOsobaTest {
 		List<Osoba> osobe = baza.vratiOsobe();
 		
 		boolean areEqual = osobe.get(0).equals(o1) && osobe.get(1).equals(o2);
-		assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);		
+		assertTrue("Metoda ne vraca ocekivanu listu osoba.", areEqual);		
 	}
 	
 	@Test

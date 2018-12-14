@@ -36,7 +36,7 @@ odmah inicijalizovati.
 
 2. Javnu metodu **dodajOsobu** koja kao ulazni argument dobija objekat klase **Osoba** i unosi ga u listu.
 
-3. Javnu metodu **sacuvaUFajl** koja upisuje (serijalizuje) sve osobe iz grupe u fajl čije se ime zadaje kao ulazni parametar metode. Ukoliko dodje do greške prilikom učitavanja baciti odgovarajući izuzetak iz metode.
+3. Javnu metodu **sacuvajUFajl** koja upisuje (serijalizuje) sve osobe iz grupe u fajl čije se ime zadaje kao ulazni parametar metode. Ukoliko dodje do greške prilikom učitavanja baciti odgovarajući izuzetak iz metode.
 
 4. Javnu metodu **ucitajIzFajla** koja učitava (deserijalizuje) sve osobe iz fajla čije se ime zadaje kao ulazni parametar metode, i puni listu **osobe** i vraća je kao povratnu vrednost metode. Pre učitavanja je potrebno isprazniti listu **osobe**.
 Ukoliko dodje do greške prilikom učitavanja baciti odgovarajući izuzetak iz metode.
