@@ -113,7 +113,10 @@ public class BazaOsobaTest {
 			List<Osoba> osobe2 =  baza2.vratiOsobe();
 			
 			boolean areEqual = osobe2.get(0).equals(o1) && osobe2.get(1).equals(o4) && osobe2.size() == 2;
-			assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);				
+			assertTrue("Metoda ne vraca ocekivanu listu osoba", areEqual);	
+			
+			// brisemo fajl
+			new File("pretraga.ser").delete();
 		} catch (IOException e) {
 			fail("Greska prilikom ucitavanja osoba u fajl!");
 		}	
