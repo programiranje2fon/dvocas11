@@ -12,6 +12,8 @@ public class ProveraBazeOsoba {
 		baza.dodajOsobu(new Osoba("Sara", "Saric"));
 		baza.dodajOsobu(new Osoba("Laza", "Lazic"));
 		baza.dodajOsobu(new Osoba("Milan", "Tosic"));
+		baza.dodajOsobu(new Osoba("Marija", "Peric"));
+
 		
 		try {
 			baza.sacuvajUFajl("baza.out");
@@ -26,7 +28,9 @@ public class ProveraBazeOsoba {
 			System.out.println("Greska prilikom ucitavanja sadrzaja baze iz fajla!");
 		}
 		
-		baza.pronadjiOsobe("Pera", "Tosic");
+		baza.pronadjiOsobe1("Pera", "Tosic");
+		baza.pronadjiOsobe2();
+		baza.ukloniOsobe("Peric");
 		
 	}
 	

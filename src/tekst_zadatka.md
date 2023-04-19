@@ -51,7 +51,10 @@ Napraviti javnu klasu **ProveraBazeOsoba** u paketu **zadatak2** koja proverava 
 
 Postojećoj klasi **BazaOsoba** dodati:
 
-1. Metodu **pronadjiOsobe** koja kao ulazne parametre prima dva stringa **ime** i **prezime**, i serijalizuje u fajl "pretraga.ser"
-sve osobe koje imaju zadato ime ili zadato prezime.  
+1. Metodu **pronadjiOsobe1** koja kao ulazne parametre prima dva stringa **ime** i **prezime**, i serijalizuje u fajl "pretraga1.ser" sve osobe koje imaju zadato ime ili zadato prezime.  
 
-Proveriti rad metode **pronadjiOsobe** pozivom iz klase **ProveraBazeOsoba**.
+2. Metodu **pronadjiOsobe2** koja serijalizuje u fajl "pretraga2.ser" sve osobe kod kojih je početno slovo imena i prezimena isto. 
+
+2. Metodu **ukloniOsobe** koja kao ulazni parametar prima string **prezime** i uklanja iz baze osobe koje imaju prosleđeno prezime. U fajl "uklonjene.ser" serijalizovati sve osobe koje su uklonjene. Na standardnom izlazu ispisati broj uklonjenih osoba u formatu "Broj uklonjenih osoba: ####".
+
+Proveriti rad metoda pozivom iz klase **ProveraBazeOsoba**.
